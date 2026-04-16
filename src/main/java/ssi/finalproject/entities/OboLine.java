@@ -9,6 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "OBO_LINE")
 public class OboLine {
+    @DatabaseField(columnName = "OboLineId",generatedId = true) private Integer OboLineId;
     @DatabaseField(uniqueCombo = true, foreign = true, columnName = "orderId") private OutboundOrder outboundOrder;
     @DatabaseField(uniqueCombo = true, columnName = "lineNumber") private Integer lineNumber;
     @DatabaseField(foreign = true, columnName = "itemId") private Item item;

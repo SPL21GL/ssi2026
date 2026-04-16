@@ -11,7 +11,7 @@ import java.util.Date;
 
 @DatabaseTable(tableName = "PICKINGORDER")
 public class PickingOrder {
-    @DatabaseField(id = true, columnName = "pickingOrderId") private Integer pickingOrderId;
+    @DatabaseField( columnName = "pickingOrderId", generatedId = true) private Integer pickingOrderId;
     @DatabaseField(columnName = "status") private OrderState status;
     @DatabaseField(foreign = true, columnName = "userId") private AppUser user;
     @DatabaseField(columnName = "startTime") private Date startTime;

@@ -10,7 +10,7 @@ import java.util.Date;
 
 @DatabaseTable(tableName = "PERFTRACK")
 public class PerfTrack {
-    @DatabaseField(id = true, columnName = "perfTrackId") private Integer perfTrackId;
+    @DatabaseField( columnName = "perfTrackId", generatedId = true) private Integer perfTrackId;
     @DatabaseField(columnName = "trackTime") private Date trackTime;
     @DatabaseField(foreign = true, columnName = "pickOrderId") private PickingOrder pickingOrder;
     @DatabaseField(foreign = true, columnName = "userId") private AppUser user;

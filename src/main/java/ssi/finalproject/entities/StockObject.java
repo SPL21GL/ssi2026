@@ -10,7 +10,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "STOCKOBJECT")
 public class StockObject {
     // Composite Key Workaround
-    @DatabaseField(id = true, columnName = "stockObjectId") private Integer StockObjectId;
+    @DatabaseField( columnName = "stockObjectId", generatedId = true) private Integer StockObjectId;
     
     @DatabaseField( foreign = true, columnName = "luId") private LoadingUnit loadingUnit;
     @DatabaseField( columnName = "stockObjectNumber") private Integer stockObjectNumber;

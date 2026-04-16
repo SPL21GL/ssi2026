@@ -11,6 +11,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "PICKINGORDER_LINE")
 public class PickingOrderLine {
+    @DatabaseField(generatedId = true, columnName = "PickingOrderLineId") private Integer PickingOrderLineId;
     @DatabaseField(uniqueCombo = true, foreign = true, columnName = "pickingOrderId") private PickingOrder pickingOrder;
     @DatabaseField(uniqueCombo = true, columnName = "lineNumber") private Integer lineNumber;
     @DatabaseField(columnName = "status") private OrderState status;
