@@ -45,3 +45,4 @@ nbactions.xml
 nbactions-*.xml
 nbproject/private/
 
+*.db

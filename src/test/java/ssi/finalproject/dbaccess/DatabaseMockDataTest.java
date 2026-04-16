@@ -42,6 +42,12 @@ public class DatabaseMockDataTest {
         Dao<PickingOrderLine, Integer> pickingOrderLineDao = DaoManager.createDao(connectionSource, PickingOrderLine.class);
         Dao<PerfTrack, Integer> perfTrackDao = DaoManager.createDao(connectionSource, PerfTrack.class);
 
+        
+        if (itemDao.countOf() > 0)
+        {
+            return;
+        }
+        
         // ==========================================
         // 2. UNABHÄNGIGE STAMMDATEN (Keine Foreign Keys)
         // ==========================================
