@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ssi.finalproject.gui;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.support.ConnectionSource;
+import ssi.finalproject.dbaccess.DatabaseManager;
+import ssi.finalproject.entities.PickingOrderLine;
 
 /**
  *
@@ -11,14 +16,21 @@ package ssi.finalproject.gui;
 public class PickerInfo extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PickerInfo.class.getName());
-
     /**
      * Creates new form PickerInfo
      */
     public PickerInfo() {
         initComponents();
+        
+        try
+        {
+        connectionSource = DatabaseManager.getConnection();
+        Dao<PickingOrderLine, Integer> pickingOrderLineDao = DaoManager.createDao(connectionSource, PickingOrderLine.class);
+        List<PickingOrderLine> pickingOrdLines = pickingOrderLineDao.queryForAll();
+        }
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

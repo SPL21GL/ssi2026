@@ -43,6 +43,8 @@ public class DatabaseMockDataTest {
         Dao<PerfTrack, Integer> perfTrackDao = DaoManager.createDao(connectionSource, PerfTrack.class);
 
         
+        
+        
         if (itemDao.countOf() > 0)
         {
             return;
