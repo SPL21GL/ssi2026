@@ -30,5 +30,12 @@ public class StoLoc {
     @DatabaseField(id = true, columnName = "stoLocId") private String stoLocId;
     @DatabaseField(columnName = "pickSequence") private Integer pickSequence;
     public StoLoc() {}
+
+    @Override
+    public String toString() {
+        return this.stoLocId;
+    }
+    
+    
 }
 
