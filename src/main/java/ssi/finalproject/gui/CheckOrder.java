@@ -9,8 +9,10 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import ssi.finalproject.dbaccess.DatabaseManager;
+import ssi.finalproject.entities.OrderState;
 import ssi.finalproject.entities.OutboundOrder;
 
 /**
@@ -31,24 +33,27 @@ public class CheckOrder extends javax.swing.JFrame {
 
     }
     
-    public void CheckState()
+    public List<OutboundOrder> getAllNewOrders()
     {
          try {
         Dao<OutboundOrder, Integer> orderDao =
             DaoManager.createDao(connectionSource, OutboundOrder.class);
 
         List<OutboundOrder> newOrders =
-            orderDao.queryForEq("state", "neu");
+            orderDao.queryForEq("state", OrderState.NEU);
 
         if (!newOrders.isEmpty()) {
             taLog.append("Es gibt neue Aufträge!\n");
         } else {
             taLog.append("Keine neuen Aufträge.\n");
         }
+        
+        return newOrders;
 
     } catch (SQLException e) {
         //e.printStackTrace();
         taLog.append("Fehler bei DB-Abfrage\n");
+        return Collections.emptyList();
     }
     }
 
@@ -106,7 +111,8 @@ public class CheckOrder extends javax.swing.JFrame {
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
-        CheckState();
+        List<OutboundOrder> newOrders = getAllNewOrders();
+        
     }//GEN-LAST:event_btnCheckActionPerformed
 
     /**
