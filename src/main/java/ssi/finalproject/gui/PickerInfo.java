@@ -22,12 +22,12 @@ public class PickerInfo extends javax.swing.JFrame {
     public PickerInfo() {
         initComponents();
         
-        try
+     /*   try
         {
         connectionSource = DatabaseManager.getConnection();
         Dao<PickingOrderLine, Integer> pickingOrderLineDao = DaoManager.createDao(connectionSource, PickingOrderLine.class);
         List<PickingOrderLine> pickingOrdLines = pickingOrderLineDao.queryForAll();
-        }
+        }*/
     }
 
     
