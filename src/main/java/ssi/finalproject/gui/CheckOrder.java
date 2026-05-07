@@ -2,7 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package ssi.finalproject.gui;
+
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.support.ConnectionSource;
+import java.sql.SQLException;
+import java.util.List;
+import ssi.finalproject.dbaccess.DatabaseManager;
+import ssi.finalproject.entities.OutboundOrder;
 
 /**
  *
@@ -11,13 +20,39 @@ package ssi.finalproject.gui;
 public class CheckOrder extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CheckOrder.class.getName());
-
+    
+    private ConnectionSource connectionSource;
     /**
      * Creates new form CheckOrder
      */
-    public CheckOrder() {
+    public CheckOrder() throws SQLException {
         initComponents();
+        this.connectionSource = DatabaseManager.getConnection();
+
     }
+    
+    public void CheckState()
+    {
+         try {
+        Dao<OutboundOrder, Integer> orderDao =
+            DaoManager.createDao(connectionSource, OutboundOrder.class);
+
+        List<OutboundOrder> newOrders =
+            orderDao.queryForEq("state", "neu");
+
+        if (!newOrders.isEmpty()) {
+            taLog.append("Es gibt neue Aufträge!\n");
+        } else {
+            taLog.append("Keine neuen Aufträge.\n");
+        }
+
+    } catch (SQLException e) {
+        //e.printStackTrace();
+        taLog.append("Fehler bei DB-Abfrage\n");
+    }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +71,7 @@ public class CheckOrder extends javax.swing.JFrame {
 
         btnCheck.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnCheck.setText("Aufträge prüfen");
+        btnCheck.addActionListener(this::btnCheckActionPerformed);
 
         taLog.setColumns(20);
         taLog.setRows(5);
@@ -68,10 +104,15 @@ public class CheckOrder extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+        // TODO add your handling code here:
+        CheckState();
+    }//GEN-LAST:event_btnCheckActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])  {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -90,7 +131,14 @@ public class CheckOrder extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CheckOrder().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> 
+        {
+            try {
+                new CheckOrder().setVisible(true);
+            } catch (SQLException ex) {
+                System.getLogger(DemoFunctions.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -98,4 +146,6 @@ public class CheckOrder extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea taLog;
     // End of variables declaration//GEN-END:variables
+
+    
 }
