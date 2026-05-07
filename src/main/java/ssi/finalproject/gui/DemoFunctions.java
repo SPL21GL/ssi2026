@@ -106,6 +106,8 @@ public class DemoFunctions extends javax.swing.JFrame {
 
         jLabel2.setText("Storage Location");
 
+        cmbStoLocs.addActionListener(this::cmbStoLocsActionPerformed);
+
         btnDeleteSelected.setText("Delete Selected Item");
         btnDeleteSelected.addActionListener(this::btnDeleteSelectedActionPerformed);
 
@@ -272,6 +274,10 @@ public class DemoFunctions extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnDeleteSelectedActionPerformed
+
+    private void cmbStoLocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStoLocsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbStoLocsActionPerformed
 
     /**
      * @param args the command line arguments

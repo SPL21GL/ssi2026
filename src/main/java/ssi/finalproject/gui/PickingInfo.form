@@ -30,13 +30,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel9" max="32767" attributes="0"/>
-                                  <Component id="lbl_kommMeng" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lbl_kommMeng" alignment="1" min="-2" pref="114" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel10" max="32767" attributes="0"/>
-                                  <Component id="txt_entMeng" max="32767" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_entMeng" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
@@ -55,20 +55,20 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="195" max="-2" attributes="0"/>
+                              <Component id="Button" min="-2" pref="195" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_komm" min="-2" pref="270" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_komm" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
+                              <EmptySpace pref="214" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lbl_LuID" max="32767" attributes="0"/>
+                                  <Component id="lbl_LuID" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -109,16 +109,16 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lbl_LuID" max="32767" attributes="0"/>
-                  <Component id="txt_komm" pref="27" max="32767" attributes="0"/>
+                  <Component id="lbl_LuID" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txt_komm" alignment="0" pref="27" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <Component id="Button" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="159" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,52 +127,6 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kommisionierplatz"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbl_artikelNr">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbl_artikelBez">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbl_kommMeng">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbl_LuID">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Best&#xe4;tigen"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_komm">
@@ -190,9 +144,29 @@
         <Property name="text" type="java.lang.String" value="Artikelnummer"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="lbl_artikelNr">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="text" type="java.lang.String" value="Artikelbezeichnung"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_artikelBez">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -200,19 +174,19 @@
         <Property name="text" type="java.lang.String" value="Kommisionier Menge"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="lbl_kommMeng">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
         <Property name="text" type="java.lang.String" value="Entnommene Menge"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ziel-LU-ID"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Entnommener Kommisionierplatz"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_entMeng">
@@ -220,10 +194,39 @@
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Entnommener Kommisionierplatz"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="txt_komm">
       <Properties>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ziel-LU-ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_LuID">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Best&#xe4;tigen"/>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

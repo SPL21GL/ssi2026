@@ -3,34 +3,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ssi.finalproject.gui;
+
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import ssi.finalproject.dbaccess.DatabaseManager;
-import ssi.finalproject.entities.PickingOrderLine;
+import ssi.finalproject.entities.Item;
+import ssi.finalproject.entities.StoLoc;
+import ssi.finalproject.gui.models.ItemTableModel;
 
 /**
  *
- * @author alexander.gruber0
+ * @author GL
  */
-public class PickerInfo extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PickerInfo.class.getName());
-    /**
-     * Creates new form PickerInfo
-     */
-    public PickerInfo() {
+public class PickingInfo extends javax.swing.JFrame {
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PickingInfo.class.getName());
+
+    private ConnectionSource connectionSource;
+    private Dao<StoLoc, String> stoLocDao;
+
+   
+
+    public PickingInfo() throws SQLException {
         initComponents();
         
-     /*   try
-        {
-        connectionSource = DatabaseManager.getConnection();
-        Dao<PickingOrderLine, Integer> pickingOrderLineDao = DaoManager.createDao(connectionSource, PickingOrderLine.class);
-        List<PickingOrderLine> pickingOrdLines = pickingOrderLineDao.queryForAll();
-        }*/
+
+        //Hier Combobox Vorbefüllen
+        List<StoLoc> liste = this.stoLocDao.queryForAll();
+        DefaultComboBoxModel<StoLoc> model = new DefaultComboBoxModel<>(new Vector<>(liste));
+
+        
+        RefreshData();
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,58 +52,59 @@ public class PickerInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        lbl_artikelNr = new javax.swing.JLabel();
-        lbl_artikelBez = new javax.swing.JLabel();
-        lbl_kommMeng = new javax.swing.JLabel();
-        lbl_LuID = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         lbl_komm = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        lbl_artikelNr = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        lbl_artikelBez = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lbl_kommMeng = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         txt_entMeng = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         txt_komm = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_LuID = new javax.swing.JLabel();
+        Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Kommisionierplatz");
-
-        lbl_artikelNr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbl_artikelNr.setName(""); // NOI18N
-
-        lbl_artikelBez.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbl_artikelBez.setName(""); // NOI18N
-
-        lbl_kommMeng.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbl_kommMeng.setName(""); // NOI18N
-
-        lbl_LuID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbl_LuID.setName(""); // NOI18N
-
-        jButton1.setText("Bestätigen");
-        jButton1.setName(""); // NOI18N
 
         lbl_komm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbl_komm.setName(""); // NOI18N
 
         jLabel7.setText("Artikelnummer");
 
+        lbl_artikelNr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_artikelNr.setName(""); // NOI18N
+
         jLabel8.setText("Artikelbezeichnung");
+
+        lbl_artikelBez.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_artikelBez.setName(""); // NOI18N
 
         jLabel9.setText("Kommisionier Menge");
 
+        lbl_kommMeng.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_kommMeng.setName(""); // NOI18N
+
         jLabel10.setText("Entnommene Menge");
-
-        jLabel11.setText("Ziel-LU-ID");
-
-        jLabel12.setText("Entnommener Kommisionierplatz");
 
         txt_entMeng.setName(""); // NOI18N
 
+        jLabel12.setText("Entnommener Kommisionierplatz");
+
         txt_komm.setName(""); // NOI18N
+
+        jLabel11.setText("Ziel-LU-ID");
+
+        lbl_LuID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_LuID.setName(""); // NOI18N
+
+        Button.setText("Bestätigen");
+        Button.setName(""); // NOI18N
+        Button.addActionListener(this::ButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,12 +136,12 @@ public class PickerInfo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
                                     .addComponent(txt_komm, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel11)
@@ -171,12 +183,29 @@ public class PickerInfo extends javax.swing.JFrame {
                     .addComponent(lbl_LuID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_komm, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
+        
+        try {
+            this.connectionSource = DatabaseManager.getConnection();
+            this.stoLocDao = DaoManager.createDao(connectionSource, StoLoc.class);
+            List<StoLoc> liste = this.stoLocDao.queryForAll();
+            lbl
+        } catch (SQLException ex) {
+            System.getLogger(PickingInfo.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+        
+    }//GEN-LAST:event_ButtonActionPerformed
+
+    private void RefreshData() throws SQLException {
+        tableModel.setItems(itemDao.queryForAll());
+    }
 
     /**
      * @param args the command line arguments
@@ -200,13 +229,17 @@ public class PickerInfo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PickerInfo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new PickingInfo().setVisible(true);
+            } catch (SQLException ex) {
+                System.getLogger(PickingInfo.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        });
     }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
